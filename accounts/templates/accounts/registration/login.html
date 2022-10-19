@@ -1,0 +1,94 @@
+{% extends '../skeleton/base.html' %}
+{% load static %}
+
+{% block scriptsCss %}
+<link href="{% static 'css/login.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<section class="h-100 gradient-form" >
+	<div class="container py-5 h-100">
+	  <div class="row d-flex justify-content-center align-items-center h-100">
+		<div class="col-12">
+		  <div class="card mb-5 rounded-3">
+			<div class="row g-0">
+				<div class="col-lg-6 gradient-bg text-black">
+					<div class="m-3">
+						<a href="{% url 'home' %}" class="btn btn-dark col-12 fw-bold">Back to Home</a>
+					</div>
+					<div class="px-3 py-4 p-md-5 mx-md-4">
+						<h4 class="mb-4 fw-bold">We are more than just a company</h4>
+						<p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+							exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="card-body p-md-3 mx-md-4">
+	
+					<div class="text-center">
+						<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+						style="width: 185px;" alt="logo">
+						<h4 class="mt-1 mb-5 pb-1">Login to printable Gate</h4>
+					</div>
+
+					{% if messages %}
+						<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+							<symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+							<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+							</symbol>
+						</svg>
+						{% for message in messages %}
+							<div class="alert alert-{{ message.tags }} d-flex align-items-center" role="alert">
+								<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+								{{ message }}
+							</div>
+						{% endfor %}
+					{% endif %}
+
+					<form method="POST">
+						{% csrf_token %}  
+						
+						{% for error in form.errors.values %}
+							<div class="alert alert-danger d-flex align-items-center" role="alert">
+								{{error}}
+							</div>
+						{% endfor %}
+							
+						<div class="form-floating mb-2">
+							<input type="username" name="username" id="id_username" placeholder="email" 
+								class="form-control" required />
+							<label class="form-label" for="id_username">Email</label>
+						</div>
+	
+						<div class="form-floating mb-2">
+							<input type="password" name="password" id="id_password" placeholder="password"  
+									class="form-control" autocomplete="current-password" required />
+							<label class="form-label" for="id_password">Password</label>
+						</div> 
+
+						<div class="text-center pt-1 mb-3">
+						<button class="btn btn-dark col-12 mb-1" type="submit">Login</button>
+						</div>
+	
+						<div class="align-items-center text-center justify-content-center mb-2">
+							<p class="mb-1">
+								Don't have an account?
+								<a class="text-muted" href="{% url 'create-user' %}">Sign up</a>
+							</p>
+							<a class="text-muted" href="#!">Forgot password?</a>
+						</div>
+	
+					</form>
+	
+					</div>
+				</div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+  {% endblock %}
+

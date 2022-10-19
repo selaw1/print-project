@@ -1,0 +1,31 @@
+{% extends './skeleton/base.html' %}
+{% load static %}
+
+{% block scriptsCss %}
+  <link href="{% static 'css/home.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+  {% include './skeleton/header.html' %}
+  {% include './components/hero.html' %}
+  
+  <!-- ======= Main ======= -->
+    {% include './components/clients.html' %}
+    {% include './components/about.html' %}
+    {% include './components/portfolio.html' %}
+    {% include './components/values.html' %}
+    {% include './components/counts.html' %}
+    {% include './components/features.html' %}
+    {% include './components/faq.html' %}
+    {% include './components/team.html' %}
+  <!-- End #main -->
+
+  {% include './skeleton/footer.html' %}
+  
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  {% endblock %}
+
+  {% block scriptsJs %}
+    <script src="{% static 'js/home.js' %}"></script>
+  {% endblock %}
+

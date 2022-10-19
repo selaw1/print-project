@@ -1,0 +1,70 @@
+{% load static %}
+{% load i18n %}
+{% load custom_tags %}
+
+<!DOCTYPE html>
+
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_current_language as LANGUAGE %}
+<html lang="{{ LANGUAGE }}" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Django app</title>
+  <meta content="" name="description">
+
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  {% comment %} <link type="text/css" href="assets/img/favicon.png" rel="icon">
+  <link type="text/css" href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> {% endcomment %}
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet"> 
+  <!-- Vendor CSS Files -->
+  <link type="text/css" href="{% static 'vendor/aos/aos.css' %} " rel="stylesheet">
+  <link type="text/css" href="{% static 'vendor/glightbox/css/glightbox.min.css' %} " rel="stylesheet">
+  <link type="text/css" href="{% static 'vendor/swiper/swiper-bundle.min.css' %} " rel="stylesheet">
+  <link type="text/css" href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %} " rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  {% block scriptsCss %}
+  {% endblock %}
+
+</head>
+
+<body>
+
+
+<main id="main">
+  {% comment %} <div class="container" data-aos="fade-up"> {% endcomment %}
+    {% block content %}
+    {% endblock %}
+  {% comment %} </div> {% endcomment %}
+</main>
+
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+
+  <!-- Template Main JS File -->
+  {% block scriptsJs %}
+  {% endblock %}
+</body>
+
+</html>

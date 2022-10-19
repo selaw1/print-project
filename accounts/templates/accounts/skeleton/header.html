@@ -1,0 +1,58 @@
+{% load static %}
+{% load i18n %}
+{% load custom_tags %}
+
+<!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="{% static 'img/logo.png' %}" alt="">
+        <span>FlexStart</span>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">{% trans "Home" %}</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li class="dropdown"><a href="#"><span> {% trans "Language" %} </span> <i class="bi bi-chevron-down"></i> </a>
+            <ul>
+              <li>
+                  {% get_current_language as LANGUAGE_CODE %}
+                  {% if LANGUAGE_CODE == "en" %}
+                    <a class="nav-link btn-bd-primary btn" href="{% change_lang 'ar' %}">العربية</a>
+                  {% else %}
+                    <a class="nav-link" href="{% change_lang 'en' %}">English</a>
+                  {% endif %}
+              </li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li>
+            
+            {% if request.user.is_authenticated %}
+              <a class="getstarted" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+              <a class="getstarted scrollto" href="{% url 'login' %}">Login</a>
+            {% endif %}
+              
+        </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+  <!-- End Header -->
