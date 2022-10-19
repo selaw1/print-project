@@ -25,7 +25,6 @@ class UserCreateView(CreateView):
     success_url = reverse_lazy('login')
 
     def dispatch(self, request, *args, **kwargs):
-        print(request.user)
         if request.user.is_authenticated:
             return redirect('/')
         return super().dispatch(request, *args, **kwargs) 
@@ -42,7 +41,6 @@ class UserCreateView(CreateView):
         # })
         # user.email_user(subject=subject, message=message)
 
-        # form.save()
         # Success message 
         messages.add_message(
             self.request,

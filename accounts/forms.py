@@ -12,8 +12,6 @@ class RegistrationForm(UserCreationForm):
         fields = ['username', 'email', 'first_name', 'last_name','password1', 'password2']
 
     def clean(self):
-        print("STARTING FORM CLEANING")
-
         cleaned_data = super().clean()
         username = cleaned_data.get('username')
         if username and UserBase.objects.filter(username__iexact=username).exists():
