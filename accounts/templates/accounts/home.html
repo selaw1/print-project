@@ -1,31 +1,36 @@
 {% extends './skeleton/base.html' %}
 {% load static %}
 
-{% block scriptsCss %}
+{% comment %} {% block scriptsCss %}
   <link href="{% static 'css/home.css' %}" rel="stylesheet">
-{% endblock %}
+{% endblock %} {% endcomment %}
 
 {% block content %}
-  {% include './skeleton/header.html' %}
-  {% include './components/hero.html' %}
-  
-  <!-- ======= Main ======= -->
-    {% include './components/clients.html' %}
+{% include './components/hero.html' %}
+{% include './skeleton/header.html' %}
+{% include './components/clients.html' %}
+
+
+  <div class="container">
+
     {% include './components/about.html' %}
-    {% include './components/portfolio.html' %}
-    {% include './components/values.html' %}
-    {% include './components/counts.html' %}
+    {% include './components/services.html' %}
     {% include './components/features.html' %}
     {% include './components/faq.html' %}
-    {% include './components/team.html' %}
-  <!-- End #main -->
+    
+  </div>
 
   {% include './skeleton/footer.html' %}
   
+  {% comment %} <div class="progress-wrap active-progress back-to-top">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919px, 307.919px; stroke-dashoffset: 272.814px;"></path>
+    </svg> {% endcomment %}
+  </div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   {% endblock %}
 
-  {% block scriptsJs %}
+  {% comment %} {% block scriptsJs %}
     <script src="{% static 'js/home.js' %}"></script>
-  {% endblock %}
+  {% endblock %} {% endcomment %}
 

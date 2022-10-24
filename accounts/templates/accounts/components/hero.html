@@ -1,25 +1,44 @@
 {% load static %}
- 
- <!-- ======= Hero Section ======= -->
-<section id="hero" class="hero d-flex align-items-center">
-    <div class="container">
-        <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center">
-            <h1 data-aos="fade-up">We offer modern solutions for growing your business</h1>
-            <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites with Bootstrap</h2>
-            <div data-aos="fade-up" data-aos-delay="600">
-            <div class="text-center text-lg-start">
-                <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                <span>Get Started</span>
-                <i class="bi bi-arrow-right"></i>
-                </a>
-            </div>
-            </div>
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex flex-column align-items-center justify-content-center">
+  <div class="container">
+
+    <div class="row w-100">
+      <div class="col-12 col-md-6 my-3" data-aos="zoom-in" data-aos-delay="100">
+        <h3><span>Create and sell  </span>custom products online !</h3>
+        <p> Turn your ideas into premium products that leave a lasting impression </p>
+
+        <div class="btns row">
+          <div class="col-12">
+            <img src="{% static 'img/pfp (8).png' %}" width="35 " height="35 ">
+            <a href="#">Upload your design</a>
+          </div class="col-12">
+          <div>
+            <img src="{% static 'img/pfp.png' %}" width="35 " height="35 ">
+            <a  href="#">sell to your clients</a>
+          </div>
+          <div class="col-12" >
+            <img src="{% static 'img/pfp (9).png' %}" width="35 " height="35 ">
+            <a href="#">leave the rest to us</a>
+          </div>
         </div>
-        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
-            <img src="{% static 'img/hero-img.png' %}" class="img-fluid" alt="">
-        </div>
-        </div>
+        
+        <a href="" class="hero-button hero-button-fill mt-4" >Upload Design</a>
+        <a href="" class="hero-button hero-button-outline mt-4" >Shop Now</a>
+      </div>
+
+      <div class="col-12 col-md-6 my-3 align-items-center justify-content-center d-flex" data-aos="zoom-in" data-aos-delay="300">
+      <img src="{% static 'img/kosm-logo.png' %}" class="img-fluid" height=350 width=350 >
+
+      </div>
     </div>
+
+    <div class="row text-center" data-aos="zoom-in" data-aos-delay="500">
+      <div class="col-12">
+        <a href="#about" class="hero-button scrollto"><i class="bi bi-chevron-double-down"></i></a>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- End Hero -->

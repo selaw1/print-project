@@ -26,13 +26,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet"> 
+ 
   <!-- Vendor CSS Files -->
   <link type="text/css" href="{% static 'vendor/aos/aos.css' %} " rel="stylesheet">
-  <link type="text/css" href="{% static 'vendor/glightbox/css/glightbox.min.css' %} " rel="stylesheet">
-  <link type="text/css" href="{% static 'vendor/swiper/swiper-bundle.min.css' %} " rel="stylesheet">
-  <link type="text/css" href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %} " rel="stylesheet">
-
+  
   <!-- Bootstrap CSS File -->
+  <link type="text/css" href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %} " rel="stylesheet">
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
   <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
 
@@ -44,24 +43,23 @@
 <body>
 
 
-<main id="main">
-  {% comment %} <div class="container" data-aos="fade-up"> {% endcomment %}
+<main>
     {% block content %}
     {% endblock %}
-  {% comment %} </div> {% endcomment %}
 </main>
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 
   <!-- Vendor JS Files -->
-  <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
   <script src="{% static 'vendor/aos/aos.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
   <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
 
 
   <!-- Template Main JS File -->
+  <script src="{% static 'js/home.js' %}"></script>
+
   {% block scriptsJs %}
   {% endblock %}
 </body>
