@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager,PermissionsMixin)
 from django.template.defaultfilters import slugify
 
-from accounts.model_helpers import GenderChoices, make_uuid
+from common.model_helpers import make_uuid
 
 
 class CustomAccountManager(BaseUserManager):

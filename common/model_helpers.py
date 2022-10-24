@@ -1,5 +1,7 @@
 import uuid
+
 from django.utils.translation import gettext_lazy as _
+from django.db import models
 
 
 def make_uuid():
@@ -16,9 +18,6 @@ def make_uuid():
     """
 common multi choices
 """
-
-from django.db import models
-from django.utils.translation import gettext_lazy as _
 
 
 class GenderChoices(models.TextChoices):

@@ -1,0 +1,97 @@
+{% load static %}
+{% load i18n %}
+{% load custom_tags %}
+
+<!DOCTYPE html>
+
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_current_language as LANGUAGE %}
+<html lang="{{ LANGUAGE }}" dir ="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Django app</title>
+  <meta content="" name="description">
+
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  {% comment %} <link type="text/css" href="assets/img/favicon.png" rel="icon">
+  <link type="text/css" href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> {% endcomment %}
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet"> 
+  
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+  <link type="text/css" href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %} " rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link type="text/css" href="{% static 'css/dashboard/dashboard.css' %} " rel="stylesheet">
+  {% block scriptsCss %}
+  {% endblock %}
+
+</head>
+
+<body>
+    <main>
+    {% include '../components/sidebar.html' %}
+
+        <!-- Page Content -->
+        <div id="content" class="container mt-3">
+            <nav class="navbar navbar-expand-lg content-nav sticky-top rounded">
+            <div class="container-fluid">
+
+                {% comment %} Toggle Sidebar {% endcomment %}
+                <button type="button" id="sidebarCollapse" class="btn btn-sidebar border">
+                    <span class="navbar-toggler-icon "></span>
+                </button>
+
+                {% comment %} Toggle Navbar Content {% endcomment %}
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button> 
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav {% if LANGUAGE_BIDI %} me-auto {% else %} ms-auto {% endif %} mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">{% trans "Home" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% if LANGUAGE_CODE == "en" %}
+                                <a class="nav-link btn-bd-primary btn border-start" href="{% change_lang 'ar' %}">العربية</a>
+                            {% else %}
+                                <a class="nav-link btn-bd-primary btn border-end" href="{% change_lang 'en' %}">English</a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </nav>
+
+            <div class="container mt-5">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </main>
+
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/sidebar.js' %}"></script>
+  {% block scriptsJs %}
+  {% endblock %}
+
+</body>
+
+</html>
